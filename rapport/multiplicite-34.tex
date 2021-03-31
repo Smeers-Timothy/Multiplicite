@@ -1,0 +1,434 @@
+\documentclass[a4paper, 11pt, oneside]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{array}
+\usepackage{shortvrb}
+\usepackage{listings}
+\usepackage[fleqn]{amsmath}
+\usepackage{amsfonts}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{graphicx}             % import, scale, and rotate graphics
+\usepackage{subfigure}            % group figures
+\usepackage{alltt}
+\usepackage[hidelinks]{hyperref}  
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdfpagemode=FullScreen,
+}
+\usepackage{url}
+\usepackage{indentfirst}
+\usepackage{eurosym}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[table,xcdraw,dvipsnames]{xcolor}
+
+% Change le nom par défaut des listing
+\renewcommand{\lstlistingname}{Codingstyle}
+
+% Change la police des titres pour convenir à votre seul lecteur
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape}
+% Idem pour la table des matière.
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+\usepackage[titles,subfigure]{tocloft}
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape}
+
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\newcommand{\coms}[1]{\textcolor{MidnightBlue}{#1}}
+
+\lstset{
+language=C, % Utilisation du langage C
+commentstyle={\color{MidnightBlue}}, % Couleur des commentaires
+frame=single, % Entoure le code d'un joli cadre
+rulecolor=\color{black}, % Couleur de la ligne qui forme le cadre
+stringstyle=\color{RawSienna}, % Couleur des chaines de caractères
+numbers=left, % Ajoute une numérotation des lignes à gauche
+numbersep=5pt, % Distance entre les numérots de lignes et le code
+numberstyle=\tiny\color{mygray}, % Couleur des numéros de lignes
+basicstyle=\tt\footnotesize,
+tabsize=3, % Largeur des tabulations par défaut
+keywordstyle=\tt\bf\footnotesize\color{Sepia}, % Style des mots-clés
+extendedchars=true,
+captionpos=b, % sets the caption-position to bottom
+texcl=true, % Commentaires sur une ligne interprétés en Latex
+showstringspaces=false, % Ne montre pas les espace dans les chaines de caractères
+escapeinside={(>}{<)}, % Permet de mettre du latex entre des <( et )>.
+inputencoding=utf8,
+literate=
+{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+{à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+{À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+{ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+{€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+{»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+}
+\newcommand{\tablemat}{~}
+
+%%%%%%%%%%%%%%%%% TITRE %%%%%%%%%%%%%%%%
+% Complétez et décommentez les définitions de macros suivantes :
+\newcommand{\intitule}{Construction de Programme}
+\newcommand{\GrNbr}{34}
+\newcommand{\PrenomUN}{Timothy}
+\newcommand{\NomUN}{Smeers}
+\newcommand{\PrenomDEUX}{Soline}
+\newcommand{\NomDEUX}{Lèbre}
+% Décommentez ceci si vous voulez une table des matières :
+\renewcommand{\tablemat}{\tableofcontents}
+
+%%%%%%%% ZONE PROTÉGÉE : MODIFIEZ UNE DES DIX PROCHAINES %%%%%%%%
+%%%%%%%%            LIGNES POUR PERDRE 2 PTS.            %%%%%%%%
+\title{INFO0947: \intitule}
+\author{Groupe \GrNbr : \PrenomUN~\textsc{\NomUN}, \PrenomDEUX~\textsc{\NomDEUX}}
+\date{\today}
+\begin{document}
+\maketitle
+\newpage
+\tablemat
+\newpage
+%%%%%%%%%%%%%%%%%%%% FIN DE LA ZONE PROTÉGÉE %%%%%%%%%%%%%%%%%%%%
+
+% Section Sous-problème
+\section{Sous-problèmes}
+\begin{itemize}
+	\item[] $SP_1 :$ Balayer le tableau
+	\begin{itemize}
+		\item[\small $\bullet$] Input : Un tableau d'entier de taille N
+		\item[\small $\bullet$] Output : $\backslash$
+		\item[\small $\bullet$] Objets utilisé(s) : 
+		\begin{itemize}
+			\item[$\star$] unsigned int i;
+			\item[$\star$] unsigned int j;
+			\item[$\star$] int $T\lbrack N \rbrack;$
+		\end{itemize}
+	\end{itemize}
+	\medskip
+	\item[] $SP_2$ : Trouver le plus grand nombre présent dans le tableau et incrémenté une variable 
+				   de 1 pour chaque occurence trouvée
+	\begin{itemize}
+		\item[\small $\bullet$] Input : Un tableau d'entier de taille N
+		\item[\small $\bullet$] Output : Le maximum et le nombre d'occurence(s)
+		\item[\small $\bullet$] Objets utilisé(s) : 
+		\begin{itemize}
+			\item[$\star$] int max;
+			\item[$\star$] unsigned int occurence;
+			\item[$\star$] unsigned int $T\lbrack N \rbrack;$ 
+		\end{itemize}
+	\end{itemize}
+	\medskip
+	\item[] \underline{Lien entre les $SP_s$} $: SP_1 \subset SP_2$
+\end{itemize}
+
+% Section Notations
+\section{Notations}
+\begin{itemize}
+	\item[] $\#i \bullet (i \in \lbrack 0, N-1 \rbrack) \hspace{1mm} \mid \hspace{1mm} (max_i \hspace{1mm} T\lbrack N \rbrack)$
+\end{itemize}
+
+\section{Précondition \& postcondition}
+\begin{itemize}
+	\item[] Préconditon : $T\lbrack N \rbrack \neq NULL \hspace{2mm} \&\& \hspace{2mm} N > 0 \rightarrow assert(T \hspace{1mm} != NULL \hspace{2mm} \&\& \hspace{2mm} N > 0);$
+	\medskip
+	\item[] Postcondition : 
+	\begin{itemize}
+		\item[\small $\bullet$] $T = T_0 \hspace{2mm} \&\& \hspace{2mm} N = N_0 \hspace{2mm} \&\& \hspace{2mm} max \hspace{1mm}!= 0 \hspace{2mm} 
+		\&\& \hspace{2mm}  occurence > occurence_0$
+		\item[\small $\bullet$] $max$ contient la valeur du plus grand nombre présent dans $T\lbrack N \rbrack$ 
+		\item[\small $\bullet$] $occurence$ contient le nombre d'occurence de max présent dans $T\lbrack N \rbrack$  
+	\end{itemize}				
+\end{itemize}
+
+% Section Invariant graphique
+\newpage
+\section{Invariant graphique}
+
+\begin{figure}[!h]
+\centering
+\begin{tabular}{lllll}
+\multicolumn{1}{l|}{}      & \multicolumn{1}{l|}{0}                                                                      & \multicolumn{1}{l|}{i}                                       & \multicolumn{1}{l|}{j+1}                                                                       & N \\
+\multicolumn{1}{l|}{T :}   & \multicolumn{1}{l|}{\cellcolor[HTML]{34CDF9}Déja balayer}                                   & \multicolumn{1}{l|}{\cellcolor[HTML]{FE0000}Reste à balayer} & \multicolumn{1}{l|}{\cellcolor[HTML]{34CDF9}Déja balayer}                                    &   \\ \cline{2-4}
+                           & - max contient la valeur maximum                                                            &                                                              & - max contient la valeur de maximum                                                          &   \\
+                           \medskip
+                           & \begin{tabular}[c]{@{}l@{}}- occurence contient le nombre\\ d'occurence de max\end{tabular} &                                                              & \begin{tabular}[c]{@{}l@{}}- occurence contient le nombre \\ d'occurence de max\end{tabular} &  
+\end{tabular}
+\caption{Invariant graphique}
+\label{fig:exemple}
+\end{figure}
+
+\begin{flushleft}
+	\begin{enumerate}
+		\item ${ G.B = i <= j }$
+		\item ${ C.A = i > j }$ 
+		\item ${ F_t = j-i }$
+	\end{enumerate}
+\end{flushleft}
+
+% Sub-section complexité
+\subsection{Règle de complexité}
+\begin{itemize}
+	\item[$R_1 :$] Instruction de base \newline
+					$T(.) = 1$ \newline
+	\item[$R_2 :$] Séquence d'instruction \newline
+					$T(.) = T_1(.) + T_2(.) + \ldots + T_k(.)$ \newline
+	\item[$R_3 :$] if \newline
+					$T(.) = max(T_1(.), T_2(.))$ \newline
+	\item[$R_4 :$] Switch \newline
+					$T(.) = max(T1(.), T2(.), \ldots, T_k(.), T_{k+1}(.))$\newline
+	\item[$R_5 :$] Boucle \newline
+					$T(.) = T_1(.) + T_2(.) + \ldots + T_k(.)$ \newline 
+					$ = \sum_{i=1}^{k} \underbrace{T_i(.)}_{\text{gardien de boucle}}$ \newline
+	\item[$R_6 :$] Programme \newline
+
+\end{itemize}
+
+\newpage
+% Sub-section Calcul de la complexité du code
+\subsection{Calcul de la complexité du code}
+	\begin{flushleft}
+		\text{int multiplicite ( int *T , const int N , int *max ) \{ }\\
+		\text{assert(T != NULL \&\& N > 0);} 
+	\newline
+		
+%--------------T(A)-----------------%
+	$\left.
+    \begin{array}{}
+		\text{unsigned int i = 0;}\\
+		\text{unsigned int j = N-1;}\\
+		\text{unsigned int occurence = 0;}\\
+		\text{*max = T[0];}
+    \end{array}
+	\right\} T(A) $\\ \\
+%--------------END T(A)-----------------%
+
+%--------------T(B')-----------------%
+	$\left.
+	\begin{array}{llll}
+		\text{while (i <= j) \{} \\ \\
+%--------------T(B_a')-----------------%
+	\left.
+	\begin{array}{}
+%--------------T(B')-----------------%
+	\left.
+	\begin{array}{}
+			\hspace{4mm} \text{if (T[i] > *max || T[j] > *max)\{} \\ 
+%--------------T(B_a1'')-----------------%
+	\left.
+	\begin{array}{}
+				\hspace{8mm} \text{if( T[i] == T[j])\{} \\
+					\hspace{12mm} \text{*max = T[i];} \\
+					\hspace{12mm} \text{occurence = 2;} 
+	\end{array}
+	\right\} T(B_{a1}'') \\ \\
+%--------------END T(B_a1'')-----------------%
+	
+%--------------T(B_a2'')-----------------%
+	\left.
+	\begin{array}{}
+				\hspace{8mm} \text{\}else if(T[i] > T[j])\{} \\
+					\hspace{12mm} \text{*max = T[i];} \\
+					\hspace{12mm} \text{occurence = 1;} 
+	\end{array}
+	\right\} T(B_{a2}'') \\ \\
+%--------------END T(B_b2'')-----------------%
+
+%--------------T(B_a3'')-----------------%
+	\left.
+	\begin{array}{}
+				\hspace{8mm} \text{\}else\{} \\
+					\hspace{12mm} \text{*max = T[j];} \\
+					\hspace{12mm} \text{occurence = 1;} 
+	\end{array}
+	\right\} T(B_{a3}'') \\ 
+%--------------END T(B_a3'')-----------------%
+				\hspace{8mm}\text{\}} 
+	\end{array}
+	\right\} T(B_a') \\ \\
+%--------------END T(B_a')-----------------%
+
+%--------------T(B_b')-----------------%
+	\left.
+	\begin{array}{}
+			\hspace{4mm} \text{\}else if(*max == T[i] || *max == T[j])\{}  \\	
+%--------------T(B_b1'')-----------------%
+	\left.
+	\begin{array}{} 
+				\hspace{8mm} \text{if(i == j)} \\
+					\hspace{12mm}\text{occurence++;} 
+	\end{array}
+	\right\} T(B_{b1}'') \\
+%--------------END T(B_b1'')-----------------%
+
+%--------------T(B_b2'')-----------------%
+	\left.
+	\begin{array}{} 
+				\hspace{8mm} \text{else if(T[i] == T[j])} \\
+					\hspace{12mm}\text{occurence +=2;} 
+	\end{array}
+	\right\} T(B_{b2}'') \\
+%--------------END T(B_b2'')-----------------%
+
+%--------------T(B_b3'')-----------------%
+	\left.
+	\begin{array}{} 
+				\hspace{8mm} \text{else} \\
+					\hspace{12mm} \text{occurence++;} 
+	\end{array}
+	\right\} T(B_{b3}'') \\
+%--------------END T(B_b3'')-----------------%
+	\end{array}
+	\right\} T(B_b') \\ \\
+%--------------END T(B_b')-----------------%
+			\hspace{4mm} \text{\}} \\
+	\end{array}
+	\right\} T(B') \\ \\
+%--------------END T(B')-----------------%
+%--------------T(B_c')-----------------%
+	\left.
+	\begin{array}{} 
+			\hspace{4mm} \text{i++;} \\
+			\hspace{4mm} \text{j--;} 
+	\end{array}
+	\right\} T(B_c') \\
+%--------------END T(B_c')-----------------%
+		\text{\}} 
+	\end{array}
+	\right\} T(B)$
+%--------------END T(B)-----------------%
+		
+		\text{return(occurence);} \\
+		\text{\}}
+	\end{flushleft}
+	
+\begin{itemize}
+	
+	\item[$\small \bullet$] $T(A) = 1$ \text{Par application de la règle 1}
+	\item[$\small \bullet$] $T(B_{a1}'') = 2 $ \text{Par application de la règle 1, 2, 3} 
+	\item[$\small \bullet$] $T(B_{a2}'') = 2 $ \text{Par application de la règle 1, 2, 3} 
+	\item[$\small \bullet$] $T(B_{a3}'') = 2 $ \text{Par application de la règle 1, 2, 3} 
+	\item[$\small \bullet$] $T(B_a') = max(T(B_{a1}''), T(B_{a2}''), T(B_{a3}''))$ \text{Par application de la règle 2 et 3}\newline
+							$T(B_a') = 2$
+	\item[$\small \bullet$] $T(B_{b1}'') = 1 $ \text{Par application de la règle 1 et 2 et 3} 
+	\item[$\small \bullet$] $T(B_{b2}'') = 1 $ \text{Par application de la règle 1 et 2 et 3} 
+	\item[$\small \bullet$] $T(B_{b3}'') = 1 $ \text{Par application de la règle 1 et 2 et 3} 
+	\item[$\small \bullet$] $T(B_b') = max(T(B_{b1}''), T(B_{b2}''), T(B_{b3}''))$ \text{Par application de la règle 2 et 3}\newline
+							$T(B_b') = 1$
+	\item[$\small \bullet$] $T(B_c') = 2$ \text{Par application de la règle 1}
+	\item[$\small \bullet$]	$T(B') = max(T(B_a'), T(B_b'))$ \text{Par application de la règle 2 et 3}\newline
+							$T(B') = 2$
+	\item[$\small \bullet$] $T(B) = \sum_{i=1}^{k} T_i(.)$ \text{Par application de la règle 5 } \newline
+							$T(B) = n/2$
+	\item[$\small \bullet$] $T(n) = T(A) + T(B)$ \text{Par application de la règle 2 et 1} 
+							$T(n) = (n/2) + 2$
+\end{itemize}
+
+
+
+% Section Invariant formel
+\newpage
+\section{Invariant formel}
+$ 0 \leq i \leq N-1 \wedge max = max_i \hspace{1mm} T\lbrack N \rbrack \wedge occurence = \#i \bullet(i\mid max) $
+
+% Section code
+\section{Code}	
+	\subsection{main.c}	
+		\begin{lstlisting}[caption={main.c}]
+#include <stdio.h>
+#include "multiplicite.h"
+
+int main(){
+
+	int T [9] = {13 , 16 , 19 , 17 ,19 , 12 , 2, 4, 10};
+	int max ;
+
+	int occurrences = multiplicite(T, 9, &max);
+	printf("%d - %d\n", occurrences, max);
+}
+
+		\end{lstlisting}
+\newpage
+	\subsection{multiplicite.h}
+		\begin{lstlisting}[caption={multiplicite.h}]
+#ifndef MULTIPLICITE_H_
+#define MULTIPLICITE_H_
+
+/**
+ * @fn int multiplicite(int*, const int, int*)
+ * @brief Obtain, for T, the greatest value of T as well as the number
+ * of occurrences of this value in T.
+ *
+ * @pre T != NULL && N > 0
+ * @post T = T0 && N = N0 && max != 0 && occurence > occurence0
+ * 		 max contains the value of the largest number present in T [N]
+ * 		 occurrence contains the number of occurrences of max present in T [N]
+ * @param T an array with N integer values
+ * @param N table size T
+ * @param max contains the value of the largest number present in T [N]
+ * @return The number of occurrences of the maximum in T.
+ */
+int multiplicite ( int *T , const int N , int *max );
+
+#endif MULTIPLICITE_H_
+		\end{lstlisting}
+		
+\newpage
+	\subsection{multiplicite.c}
+		\begin{lstlisting}[caption={multiplicite.c}]
+#include <stdio.h>
+#include <assert.h>
+#include "multiplicite.h"
+
+int multiplicite ( int *T , const int N , int *max ) {
+	assert(T != NULL && N > 0);
+
+	unsigned int i = 0;
+	unsigned int j = N-1;
+	unsigned int occurence = 0;
+	*max = T[0];
+
+	while (i <= j) {
+
+		if (T[i] > *max || T[j] > *max){
+			if( T[i] == T[j]){
+				*max = T[i];
+				occurence = 2;
+
+			}else if(T[i] > T[j]){
+				*max = T[i];
+				occurence = 1;
+			}else{
+				*max = T[j];
+				occurence = 1;
+			}
+
+		}else if(*max == T[i] || *max == T[j]){
+			if(i == j)
+				occurence++;
+			else if(T[i] == T[j])
+				occurence +=2;
+			else
+				occurence++;
+		}
+		i++;
+		j--;
+	}
+	return(occurence);
+}
+		\end{lstlisting}
+		
+% Section documentation
+\section{Documentation}	
+	Pour plus d'information sur le code vous pouvez consulter le \href{html/index.html}{site internet} contenant la documentation doxygen.
+\end{document}
