@@ -1,0 +1,171 @@
+AutoGen Definitions dummy;
+file = {
+  file-id   = 'd0/d29/main_8c';
+  file-name = 'main.c';
+    func = {
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'd0/d29/main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'main';
+      func-mem-desc-file = 'C:/Users/tim04/eclipse-workspace/INFO0947_test/main.c';
+      func-mem-desc-line = '13';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+
+_EnD_oF_dEf_TeXt_;
+      func-mem-referenceto = {
+        func-mem-ref-id = 'd4/dbc/multiplicite_8c_1ae0afa93c951872205b8051b17041c811';
+        func-mem-ref-line = '12';
+        func-mem-ref-name = 'multiplicite';
+    };
+    }; /* func-member */
+    };
+  file-full-name  = 'C:/Users/tim04/eclipse-workspace/INFO0947_test/main.c';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+basic module allowing you to fill in an array
+and call the .h functions
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+@author Smeers Timothy
+@version 0.1
+@date 27 march 2021
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = 'd4/dbc/multiplicite_8c';
+  file-name = 'multiplicite.c';
+    func = {
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'd4/dbc/multiplicite_8c_1ae0afa93c951872205b8051b17041c811';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'multiplicite';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'T';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+const int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'N';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'max';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'C:/Users/tim04/eclipse-workspace/INFO0947_test/multiplicite.c';
+      func-mem-desc-line = '12';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Obtain, for T, the greatest value of T as well as the number
+of occurrences of this value in T.
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+@pre T != NULL && N > 0
+@post T = T0 && N = N0 && max != 0 && occurence > occurence0
+         max contains the value of the largest number present in T [N]
+         occurrence contains the number of occurrences of max present in T [N]
+@param T an array with N integer values
+@param N table size T
+@param max contains the value of the largest number present in T [N]
+@return The number of occurrences of the maximum in T.
+_EnD_oF_dEf_TeXt_;
+      func-mem-referencedby = {
+        func-mem-ref-id = 'd0/d29/main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4';
+        func-mem-ref-line = '13';
+        func-mem-ref-name = 'main';
+    };
+    }; /* func-member */
+    };
+  file-full-name  = 'C:/Users/tim04/eclipse-workspace/INFO0947_test/multiplicite.c';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+Source file allowing to integrate the sorting functions of the array.
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+@author Smeers Timothy
+@version 0.1
+@date 27 march 2021
+_EnD_oF_dEf_TeXt_;
+}; /* file */
+file = {
+  file-id   = 'd7/d52/multiplicite_8h';
+  file-name = 'multiplicite.h';
+    func = {
+    func-member = {
+      func-mem-kind = 'function';
+      func-mem-id   = 'd7/d52/multiplicite_8h_1ae0afa93c951872205b8051b17041c811';
+      func-mem-virt = normal;
+      func-mem-prot = public;
+      func-mem-type = <<_EnD_oF_dEf_TeXt_
+int
+_EnD_oF_dEf_TeXt_;
+      func-mem-name = 'multiplicite';
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'T';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+const int
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'N';
+      }; /*        func-mem-param--param */
+      func-mem-param = {
+        func-mem-param-type = <<_EnD_oF_dEf_TeXt_
+int *
+_EnD_oF_dEf_TeXt_;
+        func-mem-param-declname = 'max';
+      }; /*        func-mem-param--param */
+      func-mem-desc-file = 'C:/Users/tim04/eclipse-workspace/INFO0947_test/multiplicite.h';
+      func-mem-desc-line = '26';
+      func-mem-briefdesc =    <<_EnD_oF_dEf_TeXt_
+Obtain, for T, the greatest value of T as well as the number
+of occurrences of this value in T.
+_EnD_oF_dEf_TeXt_;
+      func-mem-documentation = <<_EnD_oF_dEf_TeXt_
+@pre T != NULL && N > 0
+@post T = T0 && N = N0 && max != 0 && occurence > occurence0
+         max contains the value of the largest number present in T [N]
+         occurrence contains the number of occurrences of max present in T [N]
+@param T an array with N integer values
+@param N table size T
+@param max contains the value of the largest number present in T [N]
+@return The number of occurrences of the maximum in T.
+_EnD_oF_dEf_TeXt_;
+      func-mem-referencedby = {
+        func-mem-ref-id = 'd0/d29/main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4';
+        func-mem-ref-line = '13';
+        func-mem-ref-name = 'main';
+    };
+    }; /* func-member */
+    };
+  file-full-name  = 'C:/Users/tim04/eclipse-workspace/INFO0947_test/multiplicite.h';
+  file-first-line = '1';
+  file-briefdesc  = <<_EnD_oF_dEf_TeXt_
+Header file allowing to integrate the function prototypes of the multiplicite.h.
+_EnD_oF_dEf_TeXt_;
+  file-documentation = <<_EnD_oF_dEf_TeXt_
+@author Smeers Timothy
+@version 0.1
+@date 27 march 2021
+_EnD_oF_dEf_TeXt_;
+}; /* file */
